@@ -1,13 +1,62 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div>
-      <h1>Projeto base em React com TypeScript</h1>
+     <BrowserRouter>
+        <nav>
+          <ul>
+            <li>
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/pages/aluno/cadastrar"}>
+               Cadastrar Aluno{" "}
+              </Link>
+            </li>
+            <li>
+              <Link to={"/pages/imc/cadastrar"}>
+                Cadastrar IMC{" "}
+              </Link>
+            </li>
+            <li>
+              <Link to={"/pages/imc/listar"}>
+              Listar IMCs	{" "}
+              </Link>
+            </li>
+            <li>
+              <Link to={"/pages/imc/listarporaluno"}>
+              Listar IMCs por aluno{" "}
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<ProdutoListar />} />
+          <Route
+            path="/pages/produto/listar"
+            element={<ProdutoListar />}
+          />
+          <Route
+            path="/pages/produto/cadastrar"
+            element={<ProdutoCadastrar />}
+          />
+          <Route
+            path="/pages/cep/consultar"
+            element={<CepConsultar />}
+          />
+          <Route
+            path="/pages/produto/alterar/:id"
+            element={<ProdutoAlterar />}
+          />
+        </Routes>
+        <footer>
+          <p>Desenvolvido por Diogo Steinke Deconto</p>
+        </footer>
+      </BrowserRouter>
     </div>
   );
 }
-//4 - OBRIGATORIAMENTE o componente DEVE ser exportado
+
 export default App;
